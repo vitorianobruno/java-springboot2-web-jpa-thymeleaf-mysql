@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot CRUD</title>
+    <style>
+        html {
+            font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+            color: #404040;
+            background-color: #d3d3d3;
+        }
+        body{
+            padding: 5em;
+        }
+    </style>
+</head>
+<body>  
+    <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    <input type="submit" value="Add User">   
+</form>
+<hr>
+<a href="/">back</a>
+</body>
+</html>
